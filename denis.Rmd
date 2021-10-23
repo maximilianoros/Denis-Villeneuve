@@ -1,0 +1,30 @@
+---
+title: "Denis"
+author: "Maximiliano Ros"
+date: "23/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readxl)
+library(tidyverse)
+library(ggplot2)
+library(scales)
+```
+
+```{r}
+denis<- read_excel("Denis.xlsx")
+```
+
+```{r}
+ggplot(denis, aes(x=year, y=`box office`))+
+  geom_line()+
+  geom_point()+
+  scale_y_continuous(labels = dollar_format())
+
+```
+
